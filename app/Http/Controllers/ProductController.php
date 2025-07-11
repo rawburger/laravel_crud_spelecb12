@@ -32,12 +32,7 @@ class ProductController extends Controller
         if ($request->hasFile('imageurl')) {
             $filePath = Storage::disk('public')->putFile('file-uploads', $request->file('imageurl'));
             $filePath = Storage::url($filePath);
-            $data['imageurl'] =  $filePath;+
-
-
-
-
-            
+            $data['imageurl'] =  $filePath;
         }
 
         Product::create($data);
@@ -70,7 +65,7 @@ class ProductController extends Controller
         $product->update($data);
 
         return redirect()->back()
-        ->withSuccess('Products is updated successfully.');
+        ->withSuccess('Products is updated 0successfully.');
     }
 
     public function destroy(Product $product) : RedirectResponse
